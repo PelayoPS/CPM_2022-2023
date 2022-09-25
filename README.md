@@ -3,9 +3,9 @@ In this repository i will be uploading all the laboratory work done in the subje
 
 ## Information
 
-**Autor**: Pelayo Palacio Suárez
+**Author**: Pelayo Palacio Suárez
 
-**Año**: 2022-2023
+**Year**: 2022-2023
 
 🖥️My links💻
 
