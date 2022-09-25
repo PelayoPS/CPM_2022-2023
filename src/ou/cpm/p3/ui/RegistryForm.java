@@ -75,7 +75,7 @@ public class RegistryForm extends JDialog {
 	 * Create the frame.
 	 */
 	public RegistryForm(MainWindow mw) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(RegistryForm.class.getResource("/uo/cpm/p3/ui/img/logo.PNG")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(RegistryForm.class.getResource("/uo/cpm/p3/ui/img/logo.PNG")));//sets the icon of the window
 		
 		this.mw = mw;//keeps a reference of the main window
 		
@@ -171,16 +171,23 @@ public class RegistryForm extends JDialog {
 		if (lblPasswordRepeat == null) {//if doesn't exist
 			lblPasswordRepeat = new JLabel("Repeat Password:");//creates the label
 			lblPasswordRepeat.setToolTipText("");//adds a tooltip to the label
-			lblPasswordRepeat.setLabelFor(getPasswordFieldRepeat());
-			lblPasswordRepeat.setFont(new Font("Tahoma", Font.PLAIN, 13));
-			lblPasswordRepeat.setBounds(24, 150, 112, 22);
+			lblPasswordRepeat.setLabelFor(getPasswordFieldRepeat());//makes this label be related to the password field repeat
+			lblPasswordRepeat.setFont(new Font("Tahoma", Font.PLAIN, 13));//sets the font
+			lblPasswordRepeat.setBounds(24, 150, 112, 22);//sets the dimensions of the label
 		}
 		return lblPasswordRepeat;
 	}
 	private JButton getBtnNext() {
 		if (btnNext == null) {
-			btnNext = new JButton("Next");
-			btnNext.setMnemonic('n');
+			btnNext = new JButton("Next");//creates the button
+			btnNext.setMnemonic('n');//sets the mnemonic
+			/*
+			 * adds an action listener to the button
+			 * when the button is pressed it checks if fields are empty
+			 * and if the password is the same as the password repeat
+			 * if it shows the confirmation panel
+			 * if not it shows an error message
+			 */
 			btnNext.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(!FieldValidator.validateAllFields(getTextFieldName().getText(), getPasswordField().getText(), getPasswordFieldRepeat().getText())) {
@@ -190,75 +197,79 @@ public class RegistryForm extends JDialog {
 					}
 				}
 			});
-			btnNext.setBackground(Color.GREEN);
-			btnNext.setBounds(321, 213, 120, 37);
+			btnNext.setBackground(Color.GREEN);//sets the background color
+			btnNext.setBounds(321, 213, 120, 37);//sets the dimensions
 		}
 		return btnNext;
 	}
 	private void showConfirmationDialog() {
-		this.cd = new ConfirmationDialog();
-		this.cd.setLocationRelativeTo(this);
-		this.cd.setModal(true);
-		this.cd.setVisible(true);
+		this.cd = new ConfirmationDialog();//creates the confirmation dialog
+		this.cd.setLocationRelativeTo(this);//sets the location of the confirmation dialog relative to this window
+		this.cd.setModal(true);//sets the confirmation dialog to be modal
+		this.cd.setVisible(true);//sets the confirmation dialog to be visible
 	}
 	private JButton getBtnCancel() {
 		if (btnCancel == null) {
-			btnCancel = new JButton("Cancel");
-			btnCancel.setMnemonic('c');
+			btnCancel = new JButton("Cancel");//creates the button
+			btnCancel.setMnemonic('c');//sets the mnemonic
+			/*
+			 * adds an action listener to the button
+			 * that closes the window
+			 */
 			btnCancel.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					dispose();
 				}
 			});
-			btnCancel.setBackground(Color.RED);
-			btnCancel.setBounds(454, 213, 120, 37);
+			btnCancel.setBackground(Color.RED);//sets the background color
+			btnCancel.setBounds(454, 213, 120, 37);//sets the dimensions
 		}
 		return btnCancel;
 	}
 	private JPanel getPanelOrder() {
 		if (panelOrder == null) {
-			panelOrder = new JPanel();
-			panelOrder.setLayout(null);
-			panelOrder.setBorder(new TitledBorder(null, "Order", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-			panelOrder.setBackground(Color.WHITE);
-			panelOrder.setBounds(10, 213, 224, 44);
-			panelOrder.add(getRadioBtnOnSite());
-			panelOrder.add(getRadioBtnTakeAway());
+			panelOrder = new JPanel();//creates the panel
+			panelOrder.setLayout(null);//sets the layout to null
+			panelOrder.setBorder(new TitledBorder(null, "Order", TitledBorder.LEADING, TitledBorder.TOP, null, null));//sets the border
+			panelOrder.setBackground(Color.WHITE);//sets the background color
+			panelOrder.setBounds(10, 213, 224, 44);//sets the dimensions
+			panelOrder.add(getRadioBtnOnSite());//adds the radio button
+			panelOrder.add(getRadioBtnTakeAway());//adds the radio button
 		}
 		return panelOrder;
 	}
 	private JRadioButton getRadioBtnOnSite() {
 		if (radioBtnOnSite == null) {
-			radioBtnOnSite = new JRadioButton("On Site");
-			buttonGroupOrder.add(radioBtnOnSite);
-			radioBtnOnSite.setSelected(true);
-			radioBtnOnSite.setBackground(Color.WHITE);
-			radioBtnOnSite.setBounds(22, 14, 79, 23);
+			radioBtnOnSite = new JRadioButton("On Site");//creates the radio button
+			buttonGroupOrder.add(radioBtnOnSite);//adds the radio button to a button group so only one can be selected
+			radioBtnOnSite.setSelected(true);//sets the radio button to be selected by default
+			radioBtnOnSite.setBackground(Color.WHITE);//sets the background color
+			radioBtnOnSite.setBounds(22, 14, 79, 23);//sets the dimensions
 		}
 		return radioBtnOnSite;
 	}
 	private JRadioButton getRadioBtnTakeAway() {
 		if (radioBtnTakeAway == null) {
-			radioBtnTakeAway = new JRadioButton("Take Away");
-			buttonGroupOrder.add(radioBtnTakeAway);
-			radioBtnTakeAway.setBackground(Color.WHITE);
-			radioBtnTakeAway.setBounds(107, 14, 95, 23);
+			radioBtnTakeAway = new JRadioButton("Take Away");//creates the radio button
+			buttonGroupOrder.add(radioBtnTakeAway);//adds the radio button to a button group so only one can be selected
+			radioBtnTakeAway.setBackground(Color.WHITE);//sets teh background color
+			radioBtnTakeAway.setBounds(107, 14, 95, 23);//sets the dimensions
 		}
 		return radioBtnTakeAway;
 	}
 	private JPasswordField getPasswordField() {
 		if (passwordField == null) {
-			passwordField = new JPasswordField();
-			passwordField.setToolTipText("Introduce your password");
-			passwordField.setBounds(176, 111, 304, 27);
+			passwordField = new JPasswordField();//creates the password field
+			passwordField.setToolTipText("Introduce your password");//sets the tooltip
+			passwordField.setBounds(176, 111, 304, 27);//sets the dimensions
 		}
 		return passwordField;
 	}
 	private JPasswordField getPasswordFieldRepeat() {
 		if (passwordFieldRepeat == null) {
-			passwordFieldRepeat = new JPasswordField();
-			passwordFieldRepeat.setToolTipText("Repeat your password");
-			passwordFieldRepeat.setBounds(176, 152, 304, 27);
+			passwordFieldRepeat = new JPasswordField();//creates teh password field
+			passwordFieldRepeat.setToolTipText("Repeat your password");//sets the tooltip
+			passwordFieldRepeat.setBounds(176, 152, 304, 27);//sets the dimensions
 		}
 		return passwordFieldRepeat;
 	}

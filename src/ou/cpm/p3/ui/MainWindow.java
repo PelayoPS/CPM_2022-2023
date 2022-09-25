@@ -46,7 +46,7 @@ public class MainWindow extends JFrame {
 					frame.setLocationRelativeTo(null);// makes the window spawn in the middle of the screen
 					frame.setVisible(true);//sets the window as visible
 				} catch (Exception e) {
-					e.printStackTrace();
+					e.printStackTrace();//prints the error in the console
 				}
 			}
 		});
@@ -137,59 +137,63 @@ public class MainWindow extends JFrame {
 	}
 	private JButton getBtnAdd() {
 		if (btnAdd == null) {
-			btnAdd = new JButton("Add");
-			btnAdd.setMnemonic('A');
-			btnAdd.setBackground(Color.GREEN);
-			btnAdd.setForeground(Color.BLACK);
-			btnAdd.setBounds(510, 187, 113, 33);
+			btnAdd = new JButton("Add");//creates a new button with the title Add if the button is null
+			btnAdd.setMnemonic('A');//sets the mnemonic of the button
+			btnAdd.setBackground(Color.GREEN);//sets the background color of the button
+			btnAdd.setForeground(Color.BLACK);//sets the foreground color of the button
+			btnAdd.setBounds(510, 187, 113, 33);//sets the dimensions of the button
 		}
 		return btnAdd;
 	}
 	private JLabel getLblOrderPrice() {
 		if (lblOrderPrice == null) {
-			lblOrderPrice = new JLabel("Order price:");
-			lblOrderPrice.setFont(new Font("Arial", Font.PLAIN, 15));
-			lblOrderPrice.setBounds(416, 224, 89, 23);
+			lblOrderPrice = new JLabel("Order price:");//creates a new label with the title Order price: if the label is null
+			lblOrderPrice.setFont(new Font("Arial", Font.PLAIN, 15));//sets the font of the label
+			lblOrderPrice.setBounds(416, 224, 89, 23);//sets the dimensions of the label
 		}
 		return lblOrderPrice;
 	}
 	private JTextField getTextFieldOrderPrice() {
 		if (textFieldOrderPrice == null) {
-			textFieldOrderPrice = new JTextField();
-			textFieldOrderPrice.setEditable(false);
-			textFieldOrderPrice.setBounds(416, 258, 120, 33);
-			textFieldOrderPrice.setColumns(10);
+			textFieldOrderPrice = new JTextField();//creates a new textField if the textField is null
+			textFieldOrderPrice.setEditable(false);//sets the textField to not editable
+			textFieldOrderPrice.setBounds(416, 258, 120, 33);//sets the dimensions of the textField
+			textFieldOrderPrice.setColumns(10);//sets the number of columns of the textField
 		}
 		return textFieldOrderPrice;
 	}
 	private JButton getBtnNext() {
 		if (btnNext == null) {
-			btnNext = new JButton("Next");
+			btnNext = new JButton("Next");//creates a new button with the title Next if the button is null
+			/**
+			 * adds a listener to the button
+			 * that shows the next window
+			 */
 			btnNext.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					showCustomerInformationDialog();
 				}
 			});
-			btnNext.setMnemonic('N');
-			btnNext.setForeground(Color.BLACK);
-			btnNext.setBackground(Color.GREEN);
-			btnNext.setBounds(416, 354, 113, 33);
+			btnNext.setMnemonic('N');//sets the mnemonic of the button
+			btnNext.setForeground(Color.BLACK);//sets the foreground color of the button
+			btnNext.setBackground(Color.GREEN);//sets the background color of the button
+			btnNext.setBounds(416, 354, 113, 33);//sets the dimensions of the button
 		}
 		return btnNext;
 	}
 	private void showCustomerInformationDialog() {
-		this.rf = new RegistryForm(this);
-		this.rf.setLocationRelativeTo(this);
-		this.rf.setModal(true);
-		this.rf.setVisible(true);
+		this.rf = new RegistryForm(this);//creates a new RegistryForm giving a reference to this window
+		this.rf.setLocationRelativeTo(this);//sets the location of the RegistryForm to the center of this window
+		this.rf.setModal(true);//sets the RegistryForm to modal(which means that the prev window cant be clicked)
+		this.rf.setVisible(true);//sets the RegistryForm to visible
 	}
 	private JButton getBtnCancel() {
 		if (btnCancel == null) {
-			btnCancel = new JButton("Cancel");
-			btnCancel.setMnemonic('C');
-			btnCancel.setForeground(Color.BLACK);
-			btnCancel.setBackground(Color.RED);
-			btnCancel.setBounds(544, 354, 113, 33);
+			btnCancel = new JButton("Cancel");//creates a new button with the title Cancel if the button is null
+			btnCancel.setMnemonic('C');//sets the mnemonic of the button
+			btnCancel.setForeground(Color.BLACK);//sets the foreground color of the button
+			btnCancel.setBackground(Color.RED);//sets the background color of the button
+			btnCancel.setBounds(544, 354, 113, 33);//sets the dimensions of the button
 		}
 		return btnCancel;
 	}
